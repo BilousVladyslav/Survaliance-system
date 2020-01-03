@@ -1,8 +1,43 @@
-<mat-toolbar color="primary">
-  <span>Application Title</span>
+<mat-sidenav-container class="app-root" fullscreen>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+  <mat-sidenav #start mode="over">
+    <mat-nav-list>
+      <a *ngFor="let navItem of navItems" mat-list-item routerLinkActive="active-link" (click)="start.close()"
+         routerLink="{{navItem.route}}/" >
+        {{ navItem.name }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-  <span>Right Aligned Text</span>
-</mat-toolbar>
+  <div>
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="start.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="app-toolbar fill-remaining-space">
+          <h1 >app.title</h1>
+
+          <span class="fill-remaining-space"></span>
+          <div class="menu-section">
+            <button mat-icon-button aria-label="Open x-positioned menu">
+              <mat-icon>translate</mat-icon>
+            </button>
+
+            <!--<mat-menu xPosition="before" #countryMenu="matMenu" class="before">
+              <a *ngFor="let item of countryMenuItems"
+                 (click)="selectLocale(item.languageCode, item.countryCode, item.numberingSystem, item.currency, item.timezone)"
+                 mat-menu-item>
+                {{ item.text }}
+                <mat-icon *ngIf="currentCountry == item.countryCode && currentNumberingSystem == item.numberingSystem">
+                  done
+                </mat-icon>
+              </a>
+            </mat-menu>-->
+          </div>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+
+</mat-sidenav-container>

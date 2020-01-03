@@ -18,7 +18,7 @@ class HelloView(APIView):
 
 class UserRegistrationAPIView(CreateAPIView):
     authentication_classes = ()
-    permission_classes = (IsAdminUser)
+    permission_classes = (IsAdminUser,)
     serializer_class = UserRegistrationSerializer
 
     def create(self, request, *args, **kwargs):

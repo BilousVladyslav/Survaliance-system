@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+    navItems: any[] = [
+        { name: 'app.home', route: 'home' },
+        { name: 'app.i18n', route: 'i18n' },
+    ];
 
-  constructor() { }
+    constructor(
+    ) {
+       
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit(): void {
+        
+    }
 
 }
