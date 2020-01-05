@@ -11,5 +11,6 @@ urlpatterns = [
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('users/', UserRegistrationAPIView.as_view(), name="list"),
     path('users/login/', UserLoginAPIView.as_view(), name="login"),
-    path('drones', FrameAPIView.as_view())
+    path('frames/', FrameAPIView.as_view()),
+    path('drones/', DronesView.as_view())
 ]
