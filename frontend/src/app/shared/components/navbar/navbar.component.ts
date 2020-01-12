@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit {
         { name: 'app.i18n', route: 'i18n' },
     ];
 
+    countryMenuItems: any[];
+
     constructor(
     ) {
        
