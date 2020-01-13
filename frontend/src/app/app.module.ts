@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/modules/shared.module';
 import { RegisterUserComponent } from './modules/register-user/register-user.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorizationService } from './core/authorization.service';
+import { DroneService } from './core/drone.service';
 
 @NgModule({
     declarations: [
@@ -28,7 +31,9 @@ import { RouterModule } from '@angular/router';
         BrowserAnimationsModule,
         AppRoutingModule,
         SharedModule,
-        RouterModule
+        RouterModule,
+        HttpClientModule,
+        
     ],
     providers: [],
     bootstrap: [AppComponent]
