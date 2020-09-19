@@ -1,24 +1,26 @@
 <p>video-stream works!</p>
-<section *ngIf="is_logged">
-  <button mat-button (click)="pause()">
+<section *ngIf="is_logged" class="">
+  <button mat-button (click)="pause()" class="row">
     Pause
   </button>
-  <div *ngFor="let drone of drones">
-    <mat-card class="drone-card">
-      <mat-card-header>
-        <mat-card-title>{{drone.name}}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image
-           [src]="getImage(drone)"
-           style="max-width: 100%"
-           class="mx-auto d-block my-1">
-      <mat-card-content>
-        <p>{{drone.photo_created}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>Open</button>
-      </mat-card-actions>
-    </mat-card>
+  <div class="row">
+    <div *ngFor="let drone of drones" style="display: contents">
+      <mat-card class="col-4">
+        <mat-card-header>
+          <mat-card-title>{{drone.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image
+             [src]="getImage(drone)"
+             style="max-width: 100%"
+             class="mx-auto d-block my-1">
+        <mat-card-content>
+          <p>{{drone.photo_created}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Open</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 </section>
 <section *ngIf="!is_logged">

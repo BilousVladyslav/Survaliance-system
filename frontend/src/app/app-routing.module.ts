@@ -7,7 +7,7 @@ import { VideoStreamComponent } from './modules/video-stream/video-stream.compon
 
 const routes: Routes = [
     { path: 'home', component: ProfileComponent },
-    { path: 'i18n', component: VideoStreamComponent },
+    { path: 'frames', component: VideoStreamComponent },
 ];
 
 @NgModule({

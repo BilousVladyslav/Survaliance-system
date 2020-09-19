@@ -22,7 +22,16 @@
           <h1>app.title</h1>
           <span class="fill-remaining-space"></span>
 
-          <div class="menu-section">
+          <div class="menu-section d-flex">
+
+            <ul class="nav navbar-nav ml-auto">
+              <li *ngIf="isLogged">
+                <a (click)="logOut()" class="nav-link" style="color: white;"><b>Logout</b></a>
+              </li>
+              <li>
+                <login-component *ngIf="!isLogged"></login-component>
+              </li>
+            </ul>
 
             <button mat-icon-button [matMenuTriggerFor]="countryMenu" aria-label="Open x-positioned menu">
               <mat-icon>translate</mat-icon>

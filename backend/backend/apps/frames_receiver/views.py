@@ -35,7 +35,7 @@ class FrameAPIView(CreateAPIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get(self, request, *args, **kwargs):
-        if name := request.data.get("name"):
+        if name := request.query_params.get("name"):
             try:
                 drone = drones.get(name=name)
             except ObjectDoesNotExist:

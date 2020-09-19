@@ -1,0 +1,44 @@
+<ul class="nav navbar-nav ml-auto">
+    <li class="dropdown nav-item">
+        <a href="#" class="dropdown-toggle nav-link" style="color: white" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+        <ul id="login-dp" class="dropdown-menu">
+            <li class="p-0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Login
+                        <form class="form" role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" action="login"
+                            accept-charset="UTF-8" id="login-nav">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputEmail2">Login</label>
+                                <input type="email" formControlName="Username" class="form-control" id="exampleInputEmail2"
+                                    placeholder="Login" required>
+                                <div *ngIf=" loginForm.controls.Username.errors && submited">
+                                    <div *ngIf="loginForm.controls.Email.errors.required" class="error-message">
+                                        *Login is a required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only"
+                                    for="exampleInputPassword2">Password</label>
+                                <input type="password"  formControlName="Password" class="form-control" id="exampleInputPassword2"
+                                    placeholder="Password" required>
+                                <div *ngIf="loginForm.controls.Password.errors && submited">
+                                    <div *ngIf="loginForm.controls.Password.errors.required" class="error-message">
+                                        *Password is a required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--<div class="bottom text-center col">
+                        New here ? <a href="register"><b>Join Us</b></a>
+                    </div>-->
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

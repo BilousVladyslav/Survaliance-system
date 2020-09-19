@@ -18,7 +18,7 @@ class HelloView(APIView):
 
 class UserRegistrationAPIView(CreateAPIView):
     authentication_classes = ()
-    permission_classes = (IsAdminUser,)
+    permission_classes = ()
     serializer_class = UserRegistrationSerializer
 
     def create(self, request, *args, **kwargs):
@@ -30,6 +30,7 @@ class UserRegistrationAPIView(CreateAPIView):
         token, created = Token.objects.get_or_create(user=user)
         data = serializer.data
         data["token"] = token.key
+        data['is_admin'] = user.is_staff
 
         headers = self.get_success_headers(serializer.data)
         return Response(data, status=status.HTTP_201_CREATED, headers=headers)

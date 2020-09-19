@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../shared/models/user.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginViewModel } from 'src/app/shared/models/login-view-model.model';
@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthorizationService {
 
-    private currentUser: User;
+    public currentUser: User;
     private loggedIn = new BehaviorSubject<boolean>(false);
     private is_admin = new BehaviorSubject<boolean>(null);
 
@@ -30,8 +30,11 @@ export class AuthorizationService {
 
 
     login(userLoginViewModel: LoginViewModel): Observable<TokenResponse> {
-        return this.http.post<TokenResponse>(environment.apiUrl + `/account/login`, userLoginViewModel)
+        let params = new HttpParams().set('username', userLoginViewModel.Username)
+        params = params.append('password', userLoginViewModel.Password)
+        return this.http.post<TokenResponse>(environment.apiUrl + `users/login/`, params)
             .pipe(map(tokenResponse => {
+                console.log(tokenResponse)
                 this.currentUser = this.setUserInfo(tokenResponse);
 
                 localStorage.setItem('currentUser', JSON.stringify(this.currentUser));

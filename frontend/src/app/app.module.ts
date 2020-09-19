@@ -12,8 +12,9 @@ import { SharedModule } from './shared/modules/shared.module';
 import { RegisterUserComponent } from './modules/register-user/register-user.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthorizationService } from './core/authorization.service';
-import { DroneService } from './core/drone.service';
+import { LoginComponent } from './shared/components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { DroneService } from './core/drone.service';
         NavbarComponent,
         ContentComponent,
         RegisterUserComponent,
+        LoginComponent
         
     ],
     imports: [
@@ -33,7 +35,9 @@ import { DroneService } from './core/drone.service';
         SharedModule,
         RouterModule,
         HttpClientModule,
-        
+        FormsModule,
+        CommonModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
